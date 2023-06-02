@@ -753,5 +753,6 @@ body {
 .container, .container-sm {
 
   height: 100%;
+  max-width: 100%;
 }
 }
