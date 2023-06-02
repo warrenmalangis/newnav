@@ -179,14 +179,17 @@
   <div class="input-group">
     <div class="custom-file">
       <input type="file" class="custom-file-input" id="receipt" onchange="readURL(this)">
-      <label class="custom-file-label" for="receipt">Browse</label>
+      <label class="custom-file-label" for="receipt">Select Receipt</label>
     </div>
   </div>
   <div id="attachmentContainer" style="display: none;">
-    <img id="imagePreview" class="attached-image" src="" alt="Attached Image">
+    <div class="image-container">
+      <img id="imagePreview" class="attached-image" src="" alt="Attached Image">
+    </div>
     <span class="remove-attachment" onclick="removeAttachment()">&#10006;</span>
   </div>
 </div>
+
 
         </div>
       </div>

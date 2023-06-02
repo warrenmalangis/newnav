@@ -666,19 +666,31 @@ body {
       text-align: right;
     }
 
-    .attached-image {
-      max-width: 30px;
-      max-height: 30px;
-      margin-top: 10px;
-    }
+    .col {
+  position: relative;
+  overflow: hidden;
+}
 
-    .remove-attachment {
-      position: relative;
-      top: 0;
-      right: 0;
-      color: red;
-      cursor: pointer;
-    }
+.image-container {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.remove-attachment {
+  position: relative;
+  top: 0;
+  right: 0;
+  color: red;
+  cursor: pointer;
+}
+
 
     .form-row {
       margin-bottom: 10px;
