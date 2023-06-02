@@ -1,0 +1,253 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #d6f1f0;
+  }
+  
+  .wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 59.375rem;
+    height: 37.5rem;
+  }
+  
+  .outside-logo {
+    filter: brightness(0) invert(1);
+    max-width: 20%;
+    margin-left: 30px;
+    height: auto;
+    background-position: 0%;
+  }
+  
+  .outside-logo-below {
+    filter: brightness(0) invert(1);
+    bottom: 20px;
+    right: 300px;
+    height: auto;
+    position: absolute;
+    z-index: -1;
+    max-width: 20%;
+  }
+  
+  .container {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0.2rem 0.5rem rgba(53, 53, 53, 0.82);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  hr {
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  form h3 {
+    background-color: #46bbb7;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  form h3 {
+    margin-bottom: 10px;
+  }
+  
+  form hr {
+    border-color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .form-group.text-right {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    position: relative;
+  }
+  
+  label {
+    font-weight: bold;
+    text-align: center;
+  }
+  .label-birthday {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  
+  input,
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    transition: all 0.3s ease;
+  }
+  
+  input:focus,
+  select:focus {
+    outline: none;
+    border-color: #6c63ff;
+  }
+  
+  input:focus + label,
+  select:focus + label,
+  input:not(:placeholder-shown) + label,
+  select:not(:placeholder-shown) + label {
+    top: 8px;
+    left: 8px;
+    transform: translateY(0) scale(0.8);
+    color: #6c63ff;
+  }
+  
+  .select2-container--default .select2-results__option {
+    font-size: 14px;
+  }
+  
+  .btn-sign-up {
+    background-color: #46bbb7;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 400px;
+  }
+  
+  .btn-sign-up:hover {
+    background-color: #46bbb7;
+  }
+  
+  /* Select2 Styles */
+  .select2-container {
+    width: 100% !important;
+  }
+  
+  .select2-selection {
+    height: 38px !important;
+    border-radius: 4px;
+  }
+  
+  .select2-selection__arrow {
+    height: 36px !important;
+  }
+  
+  .select2-selection__rendered {
+    line-height: 36px !important;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .password-toggle i {
+    font-size: 16px;
+  }
+  
+  .password-toggle:hover i {
+    color: #6c63ff;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .container {
+      max-width: 90%;
+    }
+  
+    .wrap {
+      width: 70%;
+      height: auto;
+    }
+  
+    .outside-logo-below {
+      display: none;
+    }
+  
+    .outside-logo {
+      max-width: 40%;
+    }
+  }
+  @media (max-width: 768px) {
+    .container {
+      max-width: 90%;
+    }
+  
+    .wrap {
+      width: 70%;
+      height: auto;
+    }
+  
+    .outside-logo-below {
+      display: none;
+    }
+  
+    .outside-logo {
+      max-width: 40%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .wrap {
+      width: 100%;
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  
+    .container {
+      max-width: 90%;
+      min-width: unset;
+      height: auto;
+      padding: 1rem;
+      border: none;
+    }
+  
+    .outside-logo,
+    .outside-logo-below {
+      display: none;
+    }
+  
+    input,
+    select {
+      font-size: 14px;
+    }
+    .btn-sign-up {
+      width: 100%;
+    }
+  }
+  
+  

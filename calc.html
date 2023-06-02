@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Centered Container</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    *, ::after, ::before {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .custom-container {
+      width: 350px;
+      height: 600px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 0;
+    }
+
+    .header {
+      text-align: center;
+      background-color: #D6F1F0;
+      border-radius: 10px 10px 0 0;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    .form-row {
+      margin: 10px;
+    }
+
+    .form-row .col {
+      padding: 5px;
+    }
+
+    .form-control {
+      font-size: 12px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      margin: 0 80px;
+    }
+
+    .content-row {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+
+    .value {
+      font-weight: bold;
+    }
+
+    .calculate-btn {
+      display: flex;
+      justify-content: center;
+      margin-top: auto;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container custom-container">
+    <div class="header">
+      LOAN CALCULATOR
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <select class="form-control form-control-sm" id="loanRetention">
+          <option>Select Loan Retention</option>
+          <option value="0.05">CBU (5%)</option>
+          <option value="0.03">CBU (3%)</option>
+          <option value="0.02">CBU (2%)</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <select class="form-control form-control-sm" id="amortization">
+          <option>Amortization</option>
+          <option value="1">Amortization 1</option>
+          <option value="2">Amortization 2</option>
+          <option value="3">Amortization 3</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <input type="text" class="form-control form-control-sm" placeholder="Loan Amount" id="loanAmount">
+      </div>
+      <div class="col">
+        <select class="form-control form-control-sm" id="loanTerm">
+          <option>Loan Term</option>
+          <option value="1">1 Month</option>
+          <option value="2">2 Months</option>
+          <option value="3">3 Months</option>
+          <option value="4">4 Months</option>
+          <option value="5">5 Months</option>
+          <option value="6">6 Months</option>
+        </select>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content-row">
+        <span>Interest (2% per mo.)</span>
+        <span class="value" id="interestValue"></span>
+      </div>
+      <div class="content-row">
+        <span>Collection Fee (1%)</span>
+        <span class="value" id="collectionFeeValue"></span>
+      </div>
+      <div class="content-row">
+        <span>Service Fee (1%)</span>
+        <span class="value" id="serviceFeeValue"></span>
+      </div>
+      <div class="content-row">
+        <span>Loan Retention</span>
+        <span class="value" id="loanRetentionValue"></span>
+      </div>
+      <div class="content-row">
+        <span>Monthly Due</span>
+        <span class="value" id="monthlyDueValue"></span>
+      </div>
+      <div class="content-row">
+        <span>Local Insurance</span>
+        <span class="value" id="localInsuranceValue">Calculate</span>
+      </div>
+      <div class="content-row">
+        <span>Notarial Fee</span>
+        <span class="value" id="notarialFeeValue">Calculate</span>
+      </div>
+      <div class="content-row">
+        <span>Total Deduction</span>
+        <span class="value" id="totalDeductionValue"></span>
+      </div>
+      <div class="content-row">
+        <span>Net Proceeds</span>
+        <span class="value" id="netProceedsValue"></span>
+      </div>
+    </div>
+    <div class="calculate-btn">
+      <button class="btn btn-primary" onclick="calculateLoan()">Calculate</button>
+    </div>
+  </div>
+
+  <script>
+    function calculateLoan() {
+      var loanRetention = parseFloat(document.getElementById("loanRetention").value);
+      var amortization = parseFloat(document.getElementById("amortization").value);
+      var loanAmount = parseFloat(document.getElementById("loanAmount").value);
+      var loanTerm = parseFloat(document.getElementById("loanTerm").value);
+
+      var interest = loanAmount * 0.02 * loanTerm;
+      var collectionFee = loanAmount * 0.01;
+      var serviceFee = loanAmount * 0.01;
+      var loanRetentionFee = loanAmount * loanRetention;
+      var monthlyDue = (loanAmount + interest + collectionFee + serviceFee + loanRetentionFee) / amortization;
+      var localInsurance = 21;
+      var notarialFee = 200;
+      var totalDeduction = interest + collectionFee + serviceFee + loanRetentionFee + localInsurance + notarialFee;
+      var netProceeds = loanAmount - totalDeduction;
+
+      document.getElementById("interestValue").textContent = interest.toFixed(2);
+      document.getElementById("collectionFeeValue").textContent = collectionFee.toFixed(2);
+      document.getElementById("serviceFeeValue").textContent = serviceFee.toFixed(2);
+      document.getElementById("loanRetentionValue").textContent = loanRetentionFee.toFixed(2);
+      document.getElementById("monthlyDueValue").textContent = monthlyDue.toFixed(2);
+      document.getElementById("localInsuranceValue").textContent = localInsurance.toFixed(2);
+      document.getElementById("notarialFeeValue").textContent = notarialFee.toFixed(2);
+      document.getElementById("totalDeductionValue").textContent = totalDeduction.toFixed(2);
+      document.getElementById("netProceedsValue").textContent = netProceeds.toFixed(2);
+    }
+  </script>
+</body>
+</html>

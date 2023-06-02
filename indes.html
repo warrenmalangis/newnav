@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Page Template</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle Sidebar" onclick="toggleSidebar(event)">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-brand">
+        <img src="images/logo.png" alt="logo-image" class="logo">
+        <a href="#">Loan Management System</a>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle Navigation" onclick="toggleTopNav(event)">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="topNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <div class="top-nav-icons">
+              <div class="top-nav-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="top-nav-icon" id="notificationIcon">
+  <i class="fas fa-bell"></i>
+  <div id="notificationCount" class="notification-count"></div>
+  <div id="notificationDropdown" class="dropdown-menu dropdown-menu-right notification-dropdown" aria-labelledby="notificationIcon">
+    <a class="dropdown-item disabled" href="#">No notifications</a>
+  </div>
+</div>
+
+
+              <div class="top-nav-icon" id="logoutIcon">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="top-nav-text">Logout</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 sidebar" id="sidebarNav">
+  <div class="sidebar-sticky">
+    <div class="admin-container text-center">
+      <img src="images/nikki.png" alt="Admin Image" class="admin-image">
+      <div class="admin-name">Nikki Minay</div>
+      <div class="admin-role">Member</div>
+    </div>
+    <ul class="nav flex-column sidebar-menu">
+      <li class=" sidelist">
+        <a class=" side active" href="#" >
+          <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item sidelist">
+        <a class="nav-link side" href="#" data-toggle="collapse" data-target="#membersDropdown" aria-expanded="false" aria-controls="membersDropdown">
+          <span class="icon"><i class="fas fa-users"></i></span>
+          Members
+          <span class="dropdown-icon"><i class="fas fa-caret-down"></i></span>
+        </a>
+        <ul class="nav flex-column ml-3 collapse" id="membersDropdown">
+          <li class="nav-item sidelist">
+            <a class="nav-link" href="#">View Members</a>
+          </li>
+          <li class="nav-item sidelist">
+            <a class="nav-link" href="#">Add Member</a>
+          </li>
+        </ul>
+      </li>
+       <li class="nav-item sidelist">
+        <a class="nav-link side" href="#">
+          <span class="icon"><i class="fas fa-coins"></i></span>
+          Loans
+        </a>
+      </li>
+      <li class="nav-item sidelist">
+        <a class="nav-link side" href="#">
+          <span class="icon"><i class="fas fa-money-bill-wave"></i></span>
+          Cashflow
+        </a>
+      </li>
+      <li class="nav-item sidelist">
+        <a class="nav-link side" href="#" data-toggle="collapse" data-target="#reportsDropdown" aria-expanded="false" aria-controls="reportsDropdown">
+          <span class="icon"><i class="fas fa-chart-pie"></i></span>
+          Reports
+          <span class="dropdown-icon"><i class="fas fa-caret-down"></i></span>
+        </a>
+        <ul class="nav flex-column ml-3 collapse" id="reportsDropdown">
+          <li class="nav-item sidelist">
+            <a class="nav-link side" href="#">Sales Report</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link side" href="#">Financial Report</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item sidelist">
+        <a class="nav-link side" href="#">
+          <span class="icon"><i class="fas fa-cogs"></i></span>
+          Settings
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  
+<main class="col-md-10 ml-sm-auto">
+   <div class='container'>
+           <div class='card'>
+              <div class='card-header'>
+                 <h1>Dashboard</h1>
+              </div>
+              <div class="dashboard-container">
+               <div class="dashboard-item">
+                   <div class="icon"><i class="fas fa-users"></i></div>
+                   <div class="title">Total Members: <?php echo $totalMembers; ?>
+                    <p>Male: <?php echo $maleCount; ?></p>
+                    <p>Female: <?php echo $femaleCount; ?></p></div>
+               </div>
+               <div class="dashboard-item">
+                   <div class="icon"><i class="fas fa-user-check"></i></div>
+                   <div class="title">Active Member<p>4</p></div>
+               </div>
+               <div class="dashboard-item">
+                   <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                   <div class="title">Open Loans<p>3</p></div>
+               </div>
+               <div class="dashboard-item">
+                   <div class="icon"><i class="fas fa-hand-holding"></i></div>
+                   <div class="title">Loans to be Collected<p>19, 800</p></div>
+               </div>
+               <div class="dashboard-item">
+                   <div class="icon"><i class="fas fa-exclamation-circle"></i></div>
+                   <div class="title">Delinquent Loans<p>0</p></div>
+               </div>
+               <div class="dashboard-item">
+                   <div class="icon"><i class="fas fa-coins"></i></div>
+                   <div class="title">Fines to be Collected<p>0.00</p></div>
+               </div>
+               <div class="dashboard-item">
+                   <div class="icon"><i class="fas fa-hand-holding-usd"></i></div>
+                   <div class="title">On-hand Cash<p>85, 000.00</p></div>
+               </div>
+               <div class="dashboard-item">
+                   <div class="icon"><i class="fas fa-university"></i></div>
+                   <div class="title">In-bank Cash<p>40, 000.00</p></div>
+                   </div>
+                   </div>
+                   </div>
+           </div>
+        </div>
+</main>
+
+
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- HTML -->
+<!-- HTML -->
+<!-- HTML -->
+<div id="logoutModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+    </div>
+    <div class="modal-body">
+      <h3>LOGOUT?</h3>
+      <p>Are you sure you want to log out?</p>
+    </div>
+    <div class="modal-footer">
+      <button id="logoutConfirmBtn">Yes</button>
+      <button id="logoutCancelBtn">No</button>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  // JavaScript
+// JavaScript
+const logoutIcon = document.getElementById('logoutIcon');
+const logoutModal = document.getElementById('logoutModal');
+const logoutConfirmBtn = document.getElementById('logoutConfirmBtn');
+const logoutCancelBtn = document.getElementById('logoutCancelBtn');
+const closeModalBtn = document.querySelector('.close');
+
+logoutIcon.addEventListener('click', () => {
+  logoutModal.style.display = 'block';
+});
+
+closeModalBtn.addEventListener('click', () => {
+  logoutModal.style.display = 'none';
+});
+
+logoutConfirmBtn.addEventListener('click', () => {
+  window.location.href = 'indes.html';
+});
+
+logoutCancelBtn.addEventListener('click', () => {
+  logoutModal.style.display = 'none';
+});
+
+</script>
+  <script>
+    // Example code for updating the notification count
+var notificationCount = 5; // Replace with the actual count received from the backend
+
+// Update the notification count in the DOM
+var notificationCountElement = document.getElementById('notificationCount');
+notificationCountElement.textContent = notificationCount;
+notificationCountElement.style.display = notificationCount > 0 ? 'block' : 'none';
+
+  </script>
+  <script>
+  function toggleSidebar(event) {
+    event.stopPropagation();
+    var sidebar = document.getElementById('sidebarNav');
+    sidebar.classList.toggle('show');
+  }
+
+  function toggleTopNav(event) {
+    event.stopPropagation();
+    var topNav = document.getElementById('topNav');
+    topNav.classList.toggle('show');
+  }
+
+  function toggleDropdown(event, dropdownId) {
+    event.preventDefault();
+    event.stopPropagation();
+    var dropdown = document.getElementById(dropdownId);
+    dropdown.classList.toggle('show');
+  }
+
+  // Close navigation when clicking outside of it
+  window.addEventListener('click', function(event) {
+    var sidebar = document.getElementById('sidebarNav');
+    var sidebarToggler = document.querySelector('.navbar-toggler-left');
+    var topNav = document.getElementById('topNav');
+    var topNavToggler = document.querySelector('.navbar-toggler-right');
+
+    if (event.target !== sidebar && !sidebar.contains(event.target) && event.target !== sidebarToggler) {
+      sidebar.classList.remove('show');
+    }
+
+    if (event.target !== topNav && !topNav.contains(event.target) && event.target !== topNavToggler) {
+      topNav.classList.remove('show');
+    }
+  });
+
+  // Toggle notification dropdown
+  document.getElementById('notificationIcon').addEventListener('click', function(event) {
+    toggleDropdown(event, 'notificationDropdown');
+  });
+</script>
+
+</body>
+</html>

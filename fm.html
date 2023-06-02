@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ 
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+    }
+    .container {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .container-profile {
+      max-width: 1200px;
+      margin: 40px auto;
+      background-color: white;
+      border-radius: 10px;
+      position: relative;
+      padding: 20px;
+    }
+    
+    
+    
+    .img-fluid {
+      max-width: 100%;
+      height: auto;
+      border-radius: 50%;
+      width: 8rem;
+      height: auto;
+    }
+    
+    h4 {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    
+    .col-md-3 {
+      text-align: center;
+    }
+    .col-sm-4 {
+  text-align: left;
+}
+
+    
+    .tab-content-section {
+      margin-top: 40px;
+    }
+    .text-left{
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .second-row {
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="paper-folder">
+      <div class="container-profile">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="uploads/647369aa35edc.png" alt="Profile Picture" class="img-fluid rounded-circle shadow">
+          </div>
+          <div class="col-md-3">
+            <h4>Gerson O. Pantoja</h4>
+            <div class="row">
+              <div class="col">
+                <p>Age: 40</p>
+              </div>
+              <div class="col">
+                <p>Male</p>
+              </div>
+              <div class="col">
+                <p>Single</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p>Member since:</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <i class="fas fa-phone"></i>
+            <span>0987654321</span>
+          </div>
+          <div class="col-md-3">
+            <i class="fas fa-envelope"></i>
+            <span>example@gmail.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-wrapper tab-content-section">
+      <ul class="nav nav-tabs" id="myTabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="loan-history-tab" data-toggle="tab" href="#loan-history" role="tab" aria-controls="loan-history" aria-selected="false">Loan History</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="credit-score-tab" data-toggle="tab" href="#credit-score" role="tab" aria-controls="credit-score" aria-selected="false">Credit Score</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="share-capital-tab" data-toggle="tab" href="#share-capital" role="tab" aria-controls="share-capital" aria-selected="false">Share Capital Ledger</a>
+        </li>
+      </ul>
+
+      <div class="tab-content mt-3" id="myTabsContent">
+        <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="row second_row">
+            <div class="col-sm-4">
+              <h5>Personal Information</h5>
+              <p class="text-left">Address:</p>
+              <p class="text-left">Zip Code:</p>
+              <p class="text-left">Birth Place:</p>
+              <p class="text-left">Nationality:</p>
+              <p class="text-left">Civil Status:</p>
+              <p class="text-left">TIN:</p>
+              <p class="text-left">GSIS:</p>
+              <p class="text-left">SSS:</p>
+            </div>
+            <div class="col-sm-4">
+              <h5>Educational Background</h5>
+              <p class="text-left">College:</p>
+              <p class="text-left">Address:</p>
+              <p class="text-left">Year Attended:</p><br/>
+              <p class="text-left">High School:</p>
+              <p class="text-left">Address:</p>
+              <p class="text-left">Year Attended:</p><br/>
+              <p class="text-left">Elementary:</p>
+              <p class="text-left">Address:</p>
+              <p class="text-left">Year Attended:</p>
+            </div>
+            <div class="col-sm-4">
+              <h5>Employment Background</h5>
+              <p class="text-left">Occupation:</p>
+              <p class="text-left">Emplyer:</p>
+              <p class="text-left">Work Address:</p>
+              <p class="text-left">Salary (Monthly):</p>
+              <p class="text-left">Date Employed:</p><br/>
+              <h5>Beneficiaries</h5>
+              <p class="text-left">Name:</p>
+              <p class="text-left">Relationship:</p>
+              <p class="text-left">Birthday</p><br/>
+              <p class="text-left">Name:</p>
+              <p class="text-left">Relationship:</p>
+              <p class="text-left">Birthday</p><br/>
+              <p class="text-left">Name:</p>
+              <p class="text-left">Relationship:</p>
+              <p class="text-left">Birthday</p><br/>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="loan-history" role="tabpanel" aria-labelledby="loan-history-tab">
+          <h3>Loan History Content</h3>
+          <p>This is the content for the Loan History tab.</p>
+        </div>
+        <div class="tab-pane fade" id="credit-score" role="tabpanel" aria-labelledby="credit-score-tab">
+          <h3>Credit Score Content</h3>
+          <p>This is the content for the Credit Score tab.</p>
+        </div>
+        <div class="tab-pane fade" id="share-capital" role="tabpanel" aria-labelledby="share-capital-tab">
+          <h3>Share Capital Ledger Content</h3>
+          <p>This is the content for the Share Capital Ledger tab.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

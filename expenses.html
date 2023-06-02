@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Form</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS */
+
+    .text-head {
+      font-size: 2rem;
+      background: #A6BDF7;
+      margin-bottom: 20px;
+      padding: 10px 0;
+      font-weight: bold;
+    }
+
+    .right-align {
+      text-align: right;
+    }
+
+    .attached-image {
+      max-width: 30px;
+      max-height: 30px;
+      margin-top: 10px;
+    }
+
+    .remove-attachment {
+      position: relative;
+      top: 0;
+      right: 0;
+      color: red;
+      cursor: pointer;
+    }
+
+    .form-row {
+      margin-bottom: 10px;
+    }
+
+    .btn-browse {
+      margin-right: 10px;
+    }
+
+    .btn-add {
+      width: 90px;
+      background: #1297A9;
+      color: #fff;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 5px;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+
+    .search-icon {
+      font-size: 20px;
+      margin-right: 10px;
+      color: #999;
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      outline: none;
+    }
+
+    table {
+      margin-top: 30px;
+    }
+
+    th, td {
+      text-align: center;
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .table-container {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    .total-column {
+      background-color: #CFF5E7;
+    }
+
+    .total-sec, .column-sec {
+      background: #59C1BD;
+    }
+
+    .total-sec{
+      font-weight: bold;
+    }
+
+    input[type=text]{
+      font-size: 14px;
+    }
+
+    .expenseDrop, .expDate {
+      font-size: 14px;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      padding: 20px;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          var imagePreview = document.getElementById('imagePreview');
+          imagePreview.src = e.target.result;
+          imagePreview.classList.add('attached-image');
+          document.getElementById('attachmentContainer').style.display = 'block';
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    function removeAttachment() {
+      var fileInput = document.getElementById('receipt');
+      fileInput.value = '';
+      document.getElementById('attachmentContainer').style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+  <div class="container">
+    <div class="text-head">
+      Expenses
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-row align-items-center">
+          <div class="col">
+            <label for="expenseType" class="right-align">Expense Type:</label>
+          </div>
+          <div class="col">
+            <select class="form-control expenseDrop" id="expenseType">
+              <option value="Loan Payment">Loan Payment</option>
+              <option value="Interest Payment">Interest Payment</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-row align-items-center">
+          <div class="col">
+            <label for="amount" class="right-align">Amount:</label>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" id="amount" placeholder="Enter amount" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-row align-items-center">
+          <div class="col">
+            <label for="date" class="right-align">Date:</label>
+          </div>
+          <div class="col">
+            <input type="date" class="form-control expDate" id="date" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-row align-items-center">
+          <div class="col">
+            <label for="voucherNumber" class="right-align">Voucher Number:</label>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" id="voucherNumber" placeholder="Enter voucher number" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-row align-items-center">
+          <div class="col">
+            <label for="receipt" class="right-align">Receipt:</label>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="receipt" onchange="readURL(this)">
+                <label class="custom-file-label" for="receipt">Browse</label>
+              </div>
+            </div>
+            <div id="attachmentContainer" style="display: none;">
+              <img id="imagePreview" class="attached-image" src="" alt="Attached Image">
+              <span class="remove-attachment" onclick="removeAttachment()">&#10006;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-row">
+          <div class="col text-right">
+            <button type="button" class="btn btn-add">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+     <hr>
+    <div class="text-center">
+      <div class="search-container">
+  <i class="search-icon fas fa-search"></i>
+  <input type="text" class="search-input" placeholder="Search">
+</div>
+
+    </div>
+     <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="column-sec">Column 1</th>
+          <th class="column-sec">Column 2</th>
+          <th class="column-sec">Column 3</th>
+          <th class="column-sec">Column 4</th>
+          <th class="column-sec">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Value 1</td>
+          <td>Value 2</td>
+          <td>Value 3</td>
+          <td>Value 4</td>
+          <td class=""></td>
+        </tr>
+        <tr>
+          <td>Value 1</td>
+          <td>Value 2</td>
+          <td>Value 3</td>
+          <td>Value 4</td>
+          <td class=""></td>
+        </tr>
+        <tr>
+          <td>Value 1</td>
+          <td>Value 2</td>
+          <td>Value 3</td>
+          <td>Value 4</td>
+          <td class=""></td>
+        </tr>
+        <tr>
+          <td colspan="4" class="text-center total-sec">Total</td>
+          <td class="total-column"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+  
+  <!-- Include Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
