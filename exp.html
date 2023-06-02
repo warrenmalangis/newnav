@@ -175,18 +175,19 @@
           <div class="col">
             <label for="receipt" class="right-align">Receipt:</label>
           </div>
-<!--           <div class="col">
-            <div class="input-group">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="receipt" onchange="readURL(this)">
-                <label class="custom-file-label" for="receipt">Browse</label>
-              </div>
-            </div>
-            <div id="attachmentContainer" style="display: none;">
-              <img id="imagePreview" class="attached-image" src="" alt="Attached Image">
-              <span class="remove-attachment" onclick="removeAttachment()">&#10006;</span>
-            </div>
-          </div> -->
+<div class="col">
+  <div class="input-group">
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="receipt" onchange="readURL(this)">
+      <label class="custom-file-label" for="receipt">Browse</label>
+    </div>
+  </div>
+  <div id="attachmentContainer" style="display: none;">
+    <img id="imagePreview" class="attached-image" src="" alt="Attached Image">
+    <span class="remove-attachment" onclick="removeAttachment()">&#10006;</span>
+  </div>
+</div>
+
         </div>
       </div>
       <div class="col-md-6">
@@ -200,13 +201,15 @@
      <hr>
     <div class="text-center">
       <div class="search-container">
-  <i class="search-icon fas fa-search"></i>
-  <input type="text" class="search-input" placeholder="Search">
+  <input type="text" class="search-input" placeholder="Search..." oninput="searchTable()" >
+  <div class="search-icon-container">
+    <i class="fa fa-search search-icon"></i>
+  </div>
 </div>
 
     </div>
      <div class="table-container">
-    <table class="table">
+    <table id="myTable" class="table">
       <thead>
         <tr>
           <th class="column-sec">Column 1</th>
@@ -275,7 +278,27 @@
   </div>
 </div>
 
+<script>
+  function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
 
+    reader.onload = function(e) {
+      document.getElementById('imagePreview').src = e.target.result;
+      document.getElementById('attachmentContainer').style.display = 'block';
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function removeAttachment() {
+  document.getElementById('receipt').value = '';
+  document.getElementById('imagePreview').src = '';
+  document.getElementById('attachmentContainer').style.display = 'none';
+}
+
+</script>
 
 <script>
   // JavaScript
@@ -354,6 +377,36 @@ notificationCountElement.style.display = notificationCount > 0 ? 'block' : 'none
     toggleDropdown(event, 'notificationDropdown');
   });
 </script>
+<script>
+  function searchTable() {
+  // Get the input value and convert it to lowercase for case-insensitive search
+  var input = document.querySelector('.search-input');
+  var filter = input.value.toLowerCase();
 
+  // Get the table element and rows
+  var table = document.getElementById('myTable');
+  var rows = table.getElementsByTagName('tr');
+
+  // Loop through all table rows, hide those that don't match the search query
+  for (var i = 1; i < rows.length; i++) {
+    var row = rows[i];
+    var cells = row.getElementsByTagName('td');
+    var showRow = false;
+
+    // Check if any of the row's cells contain the search query
+    for (var j = 0; j < cells.length; j++) {
+      var cell = cells[j];
+      if (cell.innerHTML.toLowerCase().indexOf(filter) > -1) {
+        showRow = true;
+        break;
+      }
+    }
+
+    // Show/hide the row based on the search result
+    row.style.display = showRow ? '' : 'none';
+  }
+}
+
+</script>
 </body>
 </html>
