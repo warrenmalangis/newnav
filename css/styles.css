@@ -748,11 +748,7 @@ body {
     .expenseDrop, .expDate {
       font-size: 14px;
     }
+    .expense{
+      margin: 0;
+    }
 
-      @media (min-width: 576px){
-.container, .container-sm {
-
-  height: 100%;
-  max-width: 100%;
-}
-}
